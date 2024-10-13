@@ -15,17 +15,24 @@
             title="Total Sesi"
             description="Hari ini"
             value="4"
-            icon="o-calendar-days" />
+            icon="o-calendar-days"
+            class="text-blue-500" />
+
 
         <x-stat
-            title="Tingkat Kehadiran"
-            description="Rata-rata"
-            value="85%"
+            title="Sisa Sesi"
+            description="Hari ini"
+            value="2"
             icon="o-chart-bar"
-            class="text-purple-500" />
+            class="text-orange-500" />
     </div>
     <!-- TABLE  -->
+
     <x-card title="Jadwal Hari ini" subtitle="{{ now()->format('l, d F Y') }}" shadow separator>
+        <x-slot:menu>
+            <x-button icon="o-share" class="btn-circle btn-sm" />
+            <x-icon name="o-heart" class="cursor-pointer" />
+        </x-slot:menu>
         <x-table :headers="$headers" :rows="$users" with-pagination :sort-by="$sortBy">
             @scope('actions', $user)
             <x-button icon="o-trash" wire:click="delete({{ $user['id'] }})" spinner class="btn-ghost btn-sm text-red-500" />
