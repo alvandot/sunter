@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -18,6 +19,8 @@ class Welcome extends Component
     public bool $drawer = false;
 
     public array $sortBy = ['column' => 'name', 'direction' => 'asc'];
+
+    public Carbon $date;
 
     // Clear filters
     public function clear(): void
@@ -44,14 +47,17 @@ class Welcome extends Component
     }
 
     /**
-     * For demo purpose, this is a static collection.
+     * Mengambil daftar pengguna yang diurutkan dan dipaginasi.
      *
-     * On real projects you do it with Eloquent collections.
-     * Please, refer to maryUI docs to see the eloquent examples.
+     * @return LengthAwarePaginator
      */
     public function users(): LengthAwarePaginator
     {
         return User::query()
+            ->when($this->search, function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('email', 'like', '%' . $this->search . '%');
+            })
             ->orderBy($this->sortBy['column'], $this->sortBy['direction'])
             ->paginate(10);
     }

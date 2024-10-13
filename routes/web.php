@@ -1,6 +1,8 @@
 <?php
 
+use App\Livewire\Auth\Login;
 use App\Livewire\Welcome;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Welcome::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', Welcome::class);
+});
+
+Route::get('/login', Login::class)->name('login');
+Route::get('/logout', function () {
+    Auth::logout();
+    session()->invalidate();
+    session()->regenerateToken();
+    return redirect('/login');
+})->name('logout');
