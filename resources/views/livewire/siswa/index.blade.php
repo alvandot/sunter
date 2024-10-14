@@ -45,7 +45,7 @@
                 {{ $siswa->sekolahAsal->nama_sekolah }}
             </x-slot:sub-value>
             <x-slot:actions>
-                <x-button icon="o-trash" class="text-red-500" wire:click="delete({{ $siswa->id }})" spinner wire:confirm="Apakah Anda yakin ingin menghapus {{ $siswa->nama }} ?" wire:loading.attr="disabled" />
+                <x-button icon="o-trash" class="text-red-500" wire:click="confirmDelete({{ $siswa->id }})" spinner />
             </x-slot:actions>
         </x-list-item>
     @endforeach
@@ -58,4 +58,28 @@
             <x-button label="Selesai" icon="o-check" class="btn-primary" @click="$wire.drawer = false" />
         </x-slot:actions>
     </x-drawer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @script
+<script>
+    document.addEventListener('livewire:initialized', () => {
+        @this.on('confirmDelete', (id) => {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Siswa yang ingin dihapus tidak akan bisa dikembalikan lagi",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('delete', id);
+                }
+            })
+        });
+    });
+    </script>
+    @endscript
 </div>

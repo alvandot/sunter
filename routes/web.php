@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', Welcome::class)->name('home');
-    Route::get('/siswa', SiswaIndex::class)->name('siswa.index');
+    Route::livewire('/', Welcome::class)->name('home');
+    Route::livewire('/siswa', SiswaIndex::class)->name('siswa.index');
 });
 
-Route::get('/login', Login::class)->name('login');
-Route::get('/logout', function () {
+Route::livewire('/login', Login::class)->name('login');
+Route::livewire('/logout', function () {
     Auth::logout();
     session()->invalidate();
     session()->regenerateToken();
