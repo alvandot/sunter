@@ -17,3 +17,7 @@
     @apply bg-base-100
 }
 
+.breadcrumbs li {
+    @apply text-sm
+}
+

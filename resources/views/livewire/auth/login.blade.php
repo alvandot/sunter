@@ -27,7 +27,7 @@
                     </div>
 
                     <x-slot:actions>
-                        <x-button label="Masuk" class="btn-primary" type="submit" spinner="save" />
+                        <x-button label="Masuk" class="btn-primary" type="submit" spinner="login" />
                     </x-slot:actions>
                 </x-form>
             </div>

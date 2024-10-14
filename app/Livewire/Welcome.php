@@ -26,6 +26,7 @@ class Welcome extends Component
     public function clear(): void
     {
         $this->reset();
+        $this->resetPage();
         $this->success('Filters cleared.', position: 'toast-bottom');
     }
 

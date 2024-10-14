@@ -48,9 +48,14 @@
 
                 <x-menu-item title="Dashboard" icon="o-home" link="/" />
                 <x-menu-sub title="Manajemen Cabang" icon="o-building-office-2">
-                    <x-menu-item title="Data Siswa" icon="o-users" link="/siswa" />
+                    <x-menu-sub title="Data Siswa" icon="o-users">
+                        <x-menu-item title="List Siswa" icon="o-user-group" link="/siswa" />
+                        <x-menu-item title="List Sekolah Asal" icon="o-home-modern" link="/sekolah-asal" />
+                    </x-menu-sub>
                     <x-menu-item title="Data Pengajar" icon="o-academic-cap" link="/pengajar" />
-                    <x-menu-item title="Jadwal KBM" icon="o-calendar" link="/jadwal" />
+                    <x-menu-item title="Data Kelas" icon="o-home-modern" link="/kelas" />
+                    <x-menu-item title="Data Mapel" icon="o-book-open" link="/mapel" />
+                    <x-menu-item title="Data Ruangan" icon="o-building-office-2" link="/ruangan" />
                 </x-menu-sub>
                 <x-menu-sub title="Laporan" icon="o-document-chart-bar">
                     <x-menu-item title="Laporan Keuangan" icon="o-banknotes" link="/laporan/keuangan" />
