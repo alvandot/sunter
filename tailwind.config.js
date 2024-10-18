@@ -6,10 +6,8 @@ export default {
         "./resources/**/**/*.js",
         "./app/View/Components/**/**/*.php",
         "./app/Livewire/**/**/*.php",
-
-        // Add mary
         "./vendor/robsontenorio/mary/src/View/Components/**/*.php",
-            './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     ],
     theme: {
         extend: {},
@@ -18,6 +16,5 @@ export default {
     daisyui: {
         themes: ["bumblebee"],
     },
-    // Add daisyUI
     plugins: [require("daisyui")]
 }

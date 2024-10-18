@@ -37,7 +37,7 @@ class Index extends Component
     {
         $siswa = Siswa::find($id);
         $siswa->delete();
-        $this->success('Berhasil', 'Berhasil menghapus siswa');
+        $this->success('Berhasil', 'Berhasil menghapus siswa ');
     }
 
     public function clear()

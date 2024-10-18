@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Siswa\DetailSiswa;
 use App\Livewire\Siswa\Index as SiswaIndex;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
     Route::get('/', Welcome::class)->name('home');
     Route::get('/siswa', SiswaIndex::class)->name('siswa.index');
+    Route::get('/siswa/{id}', DetailSiswa::class)->name('siswa.detail');
 });
 
 Route::get('/login', Login::class)->name('login');

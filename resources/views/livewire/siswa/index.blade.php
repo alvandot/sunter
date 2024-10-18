@@ -2,7 +2,7 @@
     <div class="text-sm breadcrumbs">
         <ul>
             <li><a href="{{ route('home') }}">Beranda</a></li>
-            <li>Data Siswa</li>
+            <li>List Siswa</li>
         </ul>
     </div>
 
@@ -61,12 +61,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @script
-<script>
-    document.addEventListener('livewire:initialized', () => {
-        @this.on('confirmDelete', (id) => {
-            Swal.fire({
+    <script>
+        document.addEventListener('livewire:initialized', () => {
+            @this.on('confirmDelete', (id) => {
+                Swal.fire({
                 title: 'Apakah Anda yakin?',
-                text: "Siswa yang ingin dihapus tidak akan bisa dikembalikan lagi",
+                text: 'Kamu akan menghapus siswa',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
