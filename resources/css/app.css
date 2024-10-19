@@ -21,3 +21,19 @@
     @apply text-sm
 }
 
+/* Menyembunyikan scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Untuk Firefox */
+* {
+    scrollbar-width: none;
+}
+
+/* Untuk Internet Explorer dan Edge */
+* {
+    -ms-overflow-style: none;
+}
+
+

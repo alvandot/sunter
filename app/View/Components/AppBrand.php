@@ -34,8 +34,8 @@ class AppBrand extends Component
                     </div>
 
                     <!-- Display when collapsed -->
-                    <div class="display-when-collapsed hidden mx-5 mt-4 lg:mb-6 h-[28px]">
-                        <img src="{{ asset('storage/logo.png') }}" alt="logo" class="w-8 text-purple-500 animate-bounce">
+                    <div class="display-when-collapsed hidden mt-2 ml-2 lg:mb-6">
+                        <img src="{{ asset('storage/logo.png') }}" alt="logo" class="w-32 text-purple-500 animate-pulse hover:animate-bounce transition-all duration-300 transform hover:scale-110 shadow-lg rounded-full">
                     </div>
                 </a>
             HTML;
