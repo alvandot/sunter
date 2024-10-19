@@ -11,6 +11,7 @@ class SekolahAsal extends Model
     /** @use HasFactory<\Database\Factories\SekolahAsalFactory> */
     use HasFactory;
 
+    protected $table = 'sekolah_asals';
     protected $guarded = ['id'];
 
     protected $fillable = ['nama_sekolah', 'alamat', 'kota', 'provinsi', 'kode_pos', 'nomor_telepon', 'email', 'jenjang'];

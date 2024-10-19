@@ -17,22 +17,16 @@
     </x-header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 ">
-        <x-stat
-            title="Total Siswa"
-            value="{{ App\Models\Siswa::all()->count() }}"
-            icon="o-users"
+        <x-stat title="Total Siswa" value="{{ App\Models\Siswa::all()->count() }}" icon="o-users"
             class="text-blue-500" />
 
 
-        <x-stat
-            title="Siswa Baru"
-            value="{{ $siswas->where('tanggal_bergabung', '>=', now()->subMonth())->count() }}"
-            icon="o-user-plus"
-            class="text-orange-500" />
+        <x-stat title="Siswa Baru" value="{{ $siswas->where('tanggal_bergabung', '>=', now()->subMonth())->count() }}"
+            icon="o-user-plus" class="text-orange-500" />
     </div>
 
 
-    @foreach($siswas as $siswa)
+    @foreach ($siswas as $siswa)
         {{-- All slots --}}
         <x-list-item :item="$siswa" no-separator no-hover link="/siswa/{{ $siswa->id }}">
             <x-slot:avatar>
@@ -45,6 +39,7 @@
                 {{ $siswa->sekolahAsal->nama_sekolah }}
             </x-slot:sub-value>
             <x-slot:actions>
+                <x-button icon="o-pencil" class="text-blue-500" wire:click="editSiswa({{ $siswa->id }})" spinner />
                 <x-button icon="o-trash" class="text-red-500" wire:click="confirmDelete({{ $siswa->id }})" spinner />
             </x-slot:actions>
         </x-list-item>
@@ -59,27 +54,26 @@
         </x-slot:actions>
     </x-drawer>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @script
-    <script>
-        document.addEventListener('livewire:initialized', () => {
-            @this.on('confirmDelete', (id) => {
-                Swal.fire({
-                title: 'Apakah Anda yakin?',
-                text: 'Kamu akan menghapus siswa',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.dispatch('delete', id);
-                }
-            })
-        });
-    });
-    </script>
+        <script>
+            document.addEventListener('livewire:initialized', () => {
+                @this.on('confirmDelete', (id) => {
+                    Swal.fire({
+                        title: 'Apakah Anda yakin?',
+                        text: 'Kamu akan menghapus siswa',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Livewire.dispatch('delete', id);
+                        }
+                    })
+                });
+            });
+        </script>
     @endscript
 </div>

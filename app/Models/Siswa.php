@@ -13,7 +13,7 @@ class Siswa extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable = ['nama', 'jenis_kelamin', 'sekolah_asal_id', 'nama_orang_tua', 'nomor_telepon_orang_tua'];
+    protected $fillable = ['nama', 'jenis_kelamin', 'sekolah_asal_id', 'nama_orang_tua', 'nomor_telepon_orang_tua', 'tanggal_lahir', 'tempat_lahir', 'agama', 'alamat', 'nomor_telepon', 'nama_orang_tua', 'nomor_telepon_orang_tua','jenjang_bimbel'];
 
     public $timestamps = false;
 
