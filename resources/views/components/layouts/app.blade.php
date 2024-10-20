@@ -59,7 +59,10 @@
                         <x-menu-item title="List Siswa" icon="o-user-group" link="/siswa" />
                         <x-menu-item title="List Sekolah Asal" icon="o-home-modern" link="/sekolah-asal" />
                     </x-menu-sub>
-                    <x-menu-item title="Data Pengajar" icon="o-academic-cap" link="/pengajar" />
+                    <x-menu-sub title="Data Pengajar" icon="o-users">
+                        <x-menu-item title="List Pengajar" icon="o-user-group" link="/pengajar" />
+                        <x-menu-item title="List Mapel" icon="o-book-open" link="/mapel" />
+                    </x-menu-sub>
                     <x-menu-item title="Data Kelas" icon="o-home-modern" link="/kelas" />
                     <x-menu-item title="Data Mapel" icon="o-book-open" link="/mapel" />
                     <x-menu-item title="Data Ruangan" icon="o-building-office-2" link="/ruangan" />
