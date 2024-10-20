@@ -36,4 +36,28 @@
     -ms-overflow-style: none;
 }
 
+/* Gaya untuk breadcrumb */
+.breadcrumbs {
+    @apply flex items-center py-2;
+}
 
+.breadcrumbs ul {
+    @apply flex flex-wrap list-none p-0 m-0;
+}
+
+.breadcrumbs li {
+    @apply inline-flex items-center;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: "/";
+    @apply mx-2 text-gray-400;
+}
+
+.breadcrumbs a {
+    @apply text-blue-500 hover:text-blue-700 transition-colors duration-200;
+}
+
+.breadcrumbs li:last-child {
+    @apply font-semibold text-gray-700;
+}
