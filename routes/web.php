@@ -5,6 +5,7 @@ use App\Livewire\Siswa\DetailSiswa;
 use App\Livewire\Siswa\Index as SiswaIndex;
 use App\Livewire\Siswa\SekolahAsal;
 use App\Livewire\Tentor\Index as PengajarIndex;
+use App\Livewire\Tentor\MataPelajaran;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/siswa/{id}', DetailSiswa::class)->name('siswa.detail');
     Route::get('/sekolah-asal', SekolahAsal::class)->name('sekolah-asal');
     Route::get('/pengajar', PengajarIndex::class)->name('pengajar.index');
+    Route::get('/mata-pelajaran', MataPelajaran::class)->name('mata-pelajaran');
 });
 
 Route::get('/login', Login::class)->name('login');

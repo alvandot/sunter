@@ -25,6 +25,7 @@ class TentorFactory extends Factory
             'foto' => fake()->imageUrl(),
             'tanggal_lahir' => fake()->date(),
             'tanggal_bergabung' => fake()->date(),
+            'status' => fake()->randomElement(['Mengajar', 'Tidak Mengajar']),
         ];
     }
 }

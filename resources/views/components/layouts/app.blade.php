@@ -61,7 +61,7 @@
                     </x-menu-sub>
                     <x-menu-sub title="Data Pengajar" icon="o-users">
                         <x-menu-item title="List Pengajar" icon="o-user-group" link="/pengajar" />
-                        <x-menu-item title="List Mapel" icon="o-book-open" link="/mapel" />
+                        <x-menu-item title="List Mapel" icon="o-book-open" link="/mata-pelajaran" />
                     </x-menu-sub>
                     <x-menu-item title="Data Kelas" icon="o-home-modern" link="/kelas" />
                     <x-menu-item title="Data Mapel" icon="o-book-open" link="/mapel" />

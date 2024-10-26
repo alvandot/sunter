@@ -23,16 +23,16 @@
         </x-slot:actions>
     </x-header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer ">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         @foreach ($tentors as $tentor)
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105"
-                wire:click="detailTentor({{ $tentor->id }})">
+            <div
+                class="bg-white rounded-lg shadow-md  overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105">
                 <div class="p-6">
                     <div class="flex items-center space-x-4">
                         <x-avatar :image="$tentor->foto" class="w-16 h-16 rounded-full" />
                         <div>
-                            <h2
-                                class="text-xl font-semibold text-gray-800 hover:text-primary transition-colors duration-300">
+                            <h2 wire:click="detailTentor({{ $tentor->id }})"
+                                class="text-xl cursor-pointer font-semibold text-gray-800 hover:text-primary transition-colors duration-300">
                                 {{ $tentor->nama }}</h2>
                             @if ($tentor->mapel->count() > 0)
                                 <p class="text-sm text-blue-600 mt-1">

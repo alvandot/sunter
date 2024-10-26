@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('foto');
             $table->date('tanggal_lahir');
             $table->date('tanggal_bergabung');
+            $table->enum('status', ['Mengajar', 'Tidak Mengajar'])->default('Tidak Mengajar');
             $table->softDeletes();
         });
     }
